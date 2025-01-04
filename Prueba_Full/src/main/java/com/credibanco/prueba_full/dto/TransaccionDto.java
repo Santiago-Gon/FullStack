@@ -1,37 +1,31 @@
-package com.credibanco.prueba_full.model;
+package com.credibanco.prueba_full.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-@Entity
-@Table(name="transacciones")
-public class Transaccion {
+public class TransaccionDto implements Serializable {
 
-    @Id
-    @Column(name="ID")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idTransaccion;
-    @Column(name="Estado")
     private String estado;
-    @Column(name="Saldo")
     private Integer saldo;
-    @Column(name="ID_Tarejta")
     private Integer idTarjeta;
-    @Column(name = "ID_Usuario")
     private Integer idUsuario;
-    @Column(name = "Fecha")
+    private List<ProductoDto> productos;
     private Date fecha;
 
-    public Transaccion() {
+    public TransaccionDto() {
     }
 
-    public Transaccion(Integer idTransaccion, String estado, Integer saldo, Integer idTarjeta, Integer idUsuario, Date fecha) {
-        this.idTransaccion = idTransaccion;
-        this.estado = estado;
-        this.saldo = saldo;
+    public TransaccionDto(Integer idTarjeta, Integer saldo, String estado, Integer idTransaccion, Integer idUsuario, List<ProductoDto> productos, Date fecha) {
         this.idTarjeta = idTarjeta;
+        this.saldo = saldo;
+        this.estado = estado;
+        this.idTransaccion = idTransaccion;
         this.idUsuario = idUsuario;
+        this.productos = productos;
         this.fecha = fecha;
     }
 
@@ -73,6 +67,14 @@ public class Transaccion {
 
     public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public List<ProductoDto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<ProductoDto> productos) {
+        this.productos = productos;
     }
 
     public Date getFecha() {

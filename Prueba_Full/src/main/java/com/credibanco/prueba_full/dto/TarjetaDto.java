@@ -1,34 +1,24 @@
-package com.credibanco.prueba_full.model;
+package com.credibanco.prueba_full.dto;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-import javax.xml.crypto.Data;
+import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name="tarjetas")
-public class Tarjeta {
-    @Id
-    @Column(name="ID")
-    private Integer idTarjeta;
-    @Column(name="Titular")
-    private String titular;
-    @Column(name="Fecha_Ven")
-    private Date fechaVen;
-    @Column(name="Tipo_Tarjeta")
-    private String tipoTarjeta;
-    @Column(name = "ID_Usuario")
-    private Integer idUsuario;
-    @Column (name = "Saldo")
-    private Integer saldo;
+public class TarjetaDto implements Serializable {
 
-    public Tarjeta() {
+
+    private Integer idTarjeta;
+    private String titular;
+    private Date fechaVen;
+    private String tipoTarjeta;
+    private Integer idUsuario;
+    private Integer saldo;
+    public TarjetaDto() {
     }
 
-    public Tarjeta(Integer idTarjeta, String titular, Date fechaVen, String tipoTarjeta, Integer idUsuario, Integer saldo) {
+    public TarjetaDto(Integer idTarjeta, String titular, Date fechaVen, String tipoTarjeta, Integer idUsuario, Integer saldo) {
         this.idTarjeta = idTarjeta;
         this.titular = titular;
         this.fechaVen = fechaVen;
@@ -85,3 +75,4 @@ public class Tarjeta {
         this.saldo = saldo;
     }
 }
+

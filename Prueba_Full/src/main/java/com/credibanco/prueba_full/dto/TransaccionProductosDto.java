@@ -1,29 +1,21 @@
-package com.credibanco.prueba_full.model;
+package com.credibanco.prueba_full.dto;
 
+import jakarta.persistence.Column;
 
-import jakarta.persistence.*;
+import java.io.Serializable;
 
-@Entity
-@Table(name="transaccion_productos")
-public class TransaciconProductos {
+public class TransaccionProductosDto implements Serializable {
 
-    @Id
-    @Column(name="ID")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idTransaccionProductos;
-    @Column(name="ID_Transaccion")
     private Integer idTransaccion;
-    @Column(name="ID_Producto")
     private Integer idProducto;
-    @Column(name="Precio")
     private Integer precio;
-    @Column(name="Nombre")
     private String nombre;
 
-    public TransaciconProductos() {
+    public TransaccionProductosDto() {
     }
 
-    public TransaciconProductos(Integer idTransaccionProductos, Integer idTransaccion, Integer idProducto, Integer precio, String nombre) {
+    public TransaccionProductosDto(Integer idTransaccionProductos, Integer idTransaccion, Integer idProducto, Integer precio, String nombre) {
         this.idTransaccionProductos = idTransaccionProductos;
         this.idTransaccion = idTransaccion;
         this.idProducto = idProducto;
